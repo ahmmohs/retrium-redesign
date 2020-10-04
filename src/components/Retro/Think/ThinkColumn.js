@@ -1,10 +1,28 @@
 import React, { useState } from 'react';
 
 import addIcon from '../../../assets/add.svg';
+import ThinkNote from './ThinkNote';
 
-function ThinkColumn ({ title, desc, contents }) {
-  const [notes, setNotes] = useState([]);
+function ThinkColumn ({ title, desc, retroData, setRetroData }) {
+  const colors = ['pink', 'blue', 'yellow'];
+	
+	function createNote () {
+		const newRetroData = [...retroData];
+		newRetroData.push({column: title, value: '', color: colors[Math.floor(colors.length * Math.random())]});
+		setRetroData(newRetroData);
+	}
 
+	function updateNote (i, e) {
+		let newRetroData = [...retroData];
+		newRetroData[i].value = e.target.value;
+		setRetroData(newRetroData);
+	}
+
+	function deleteNote (i) {
+		let newRetroData = [...retroData];
+		newRetroData.splice(i, 1);
+		setRetroData(newRetroData);
+	}
 
   return (
     <div className="column">
@@ -13,11 +31,19 @@ function ThinkColumn ({ title, desc, contents }) {
           <div className="select__heading">{desc}</div>
           <div className="heading">{title}</div>
         </div>
-        <div className="add__note__button">
+        <div
+					className="add__note__button"
+					onClick={() => createNote()}
+				>
           Add note
           <img src={addIcon} alt="" className="add__button--img"/>
         </div>
       </div>
+			{
+				retroData.filter(item => item.column === title).map((note) => (
+					<ThinkNote note={note} i={retroData.indexOf(note)} updateNote={updateNote} deleteNote={deleteNote}/>
+				))
+			}
       {
         /*
           <div className="new__note__wrapper">

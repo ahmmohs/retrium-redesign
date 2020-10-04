@@ -9,7 +9,8 @@ let breadcrumbStages = [];
 
 function StageOne ({ retro, stage }) {
 
-  const [retroData, setRetroData] = useState({});
+	const [retroData, setRetroData] = useState([]);
+	const stageDigits = ['One', 'Two', 'Three', 'Four'];
   breadcrumbStages = stages.slice(0, stage);
 
   return (
@@ -27,7 +28,7 @@ function StageOne ({ retro, stage }) {
           </div>
         )
       }
-      <div className="heading">Stage One: {stages[stage]}</div>
+      <div className="heading">Stage {stageDigits[stage]}: {stages[stage]}</div>
         <Timer startTime={180} />
       </div>
       <Think retro={retro} retroData={retroData} setRetroData={setRetroData} />

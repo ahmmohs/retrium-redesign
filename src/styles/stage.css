@@ -125,7 +125,7 @@
 .columns__wrapper {
   width: 100%;
   display: flex;
-  justify-content: space-evenly;
+  justify-content: space-between;
   box-sizing: border-box;
   padding: 32px;
 }
@@ -242,4 +242,10 @@
   color: #333333;
   margin-top: 2px;
   cursor: pointer;
+}
+
+@media only screen and (max-width: 1680px) {
+	.column {
+		width: 360px;
+	}
 }
