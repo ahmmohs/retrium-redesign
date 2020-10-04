@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 import Stage from './Stage';
 
@@ -34,7 +34,8 @@ const participants = [
   },
 ]
 
-function Retro ({ retro, stage }) {
+function Retro ({ retro }) {
+  const [retroStage, setRetroStage] = useState(0);
 
   return (
     <>
@@ -50,7 +51,7 @@ function Retro ({ retro, stage }) {
           </div>
         </div>
       </div>
-      <Stage retro={retro} stage={stage} />
+      <Stage retro={retro} stage={retroStage} setStage={setRetroStage} />
     </>
   );
 }

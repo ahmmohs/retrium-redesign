@@ -4,11 +4,13 @@ import addIcon from '../../../assets/add.svg';
 import ThinkNote from './ThinkNote';
 
 function ThinkColumn ({ title, desc, retroData, setRetroData }) {
+	const [newestNote, setNewestNote] = useState(0);
   const colors = ['pink', 'blue', 'yellow'];
 	
 	function createNote () {
 		const newRetroData = [...retroData];
 		newRetroData.push({column: title, value: '', color: colors[Math.floor(colors.length * Math.random())]});
+		setNewestNote(newRetroData.length - 1);
 		setRetroData(newRetroData);
 	}
 
@@ -41,7 +43,7 @@ function ThinkColumn ({ title, desc, retroData, setRetroData }) {
       </div>
 			{
 				retroData.filter(item => item.column === title).map((note) => (
-					<ThinkNote note={note} i={retroData.indexOf(note)} updateNote={updateNote} deleteNote={deleteNote}/>
+					<ThinkNote note={note} i={retroData.indexOf(note)} updateNote={updateNote} deleteNote={deleteNote} newestNote={newestNote} />
 				))
 			}
       {

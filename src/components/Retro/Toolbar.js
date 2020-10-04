@@ -6,7 +6,7 @@ import timerIcon from '../../assets/timer.svg';
 import infoIcon from '../../assets/info.svg';
 import nextIcon from '../../assets/carot.svg';
 
-function Toolbar () {
+function Toolbar ({ stage, setStage }) {
   return (
     <div className="toolbar">
       <div className="flex--right">
@@ -24,7 +24,7 @@ function Toolbar () {
         </div>
       </div>
       <div className="flex--left">
-        <div className="next__button">
+        <div className="next__button" onClick={() => stage !== 3 ? setStage(stage + 1) : {}}>
           Next Stage
           <img src={nextIcon} alt="" className="toolbar__button--img"/>
         </div>

@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import Think from './Think';
+import Group from './Group';
 
 import Timer from './Timer';
 import Toolbar from './Toolbar';
@@ -7,11 +8,16 @@ import Toolbar from './Toolbar';
 const stages = ['Think', 'Group', 'Vote', 'Discuss'];
 let breadcrumbStages = [];
 
-function StageOne ({ retro, stage }) {
+function Stage ({ retro, stage, setStage }) {
 
 	const [retroData, setRetroData] = useState([]);
 	const stageDigits = ['One', 'Two', 'Three', 'Four'];
-  breadcrumbStages = stages.slice(0, stage);
+	breadcrumbStages = stages.slice(0, stage);
+	
+	const stageDisplay = [
+		<Think retro={retro} retroData={retroData} setRetroData={setRetroData} />,
+		<Group retro={retro} retroData={retroData} />
+	]
 
   return (
     <div className="stage__wrapper">
@@ -31,10 +37,10 @@ function StageOne ({ retro, stage }) {
       <div className="heading">Stage {stageDigits[stage]}: {stages[stage]}</div>
         <Timer startTime={180} />
       </div>
-      <Think retro={retro} retroData={retroData} setRetroData={setRetroData} />
-      <Toolbar />
+      {stageDisplay[1]}
+      <Toolbar stage={stage} setStage={setStage} />
     </div>
   );
 }
 
-export default StageOne;
+export default Stage;

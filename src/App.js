@@ -50,7 +50,6 @@ const retros = [
 
 function App () {
   const [selectedRetro, setSelectedRetro] = useState(0);
-  const [retroStage, setRetroStage] = useState(0);
 
   return (
     <Router>
@@ -69,7 +68,7 @@ function App () {
                 <CreateRetro retros={retros} setSelectedRetro={setSelectedRetro} selectedRetro={selectedRetro} />
               </Route>
               <Route path="/retro" >
-                <Retro retro={retros[selectedRetro]} stage={retroStage} />
+                <Retro retro={retros[selectedRetro]} />
               </Route>
             </Switch>
           </div>
