@@ -1,8 +1,9 @@
 import React from 'react';
+import { Droppable } from 'react-beautiful-dnd';
 import GroupNote from './GroupNote';
 import { useState } from 'react';
 
-function GroupColumn ({ title, desc, groupData, setGroupData }) {
+function GroupColumn ({ id, title, desc, groupData, setGroupData }) {
 	const [dragging, setDragging] = useState(false);
 	const [currentDrag, setCurrentDrag]= useState(null);
 
