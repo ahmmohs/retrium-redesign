@@ -136,6 +136,10 @@
   width: 440px;
 }
 
+.column--over {
+  background: #f2f2f2;
+}
+
 .column__header {
   width: 100%;
   display: flex;
@@ -217,6 +221,8 @@
 	align-items: center;
 	padding: 12px 12px 12px 12px;
 	cursor: grab;
+  -moz-user-select: none;
+  -webkit-user-select: none;
 }
 
 .drag__icon {
