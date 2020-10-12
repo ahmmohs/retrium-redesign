@@ -127,17 +127,25 @@
   display: flex;
   justify-content: space-between;
   box-sizing: border-box;
-	padding: 32px;
+  padding: 32px;
+  height: calc(100% - 124px);
 	max-height: calc(100% - 124px);
 	overflow: auto;
 }
 
 .column {
   width: 440px;
+  height: 100%;
+  box-sizing: border-box;
+  padding: 8px;
+  display: flex;
+  flex-direction: column;
+  border-radius: 8px;
+  transition: .2s ease;
 }
 
 .column--over {
-  background: #f2f2f2;
+  background: #fafafa;
 }
 
 .column__header {
@@ -184,6 +192,10 @@
 .new__note__wrapper {
   display: flex;
   width: 100%;
+}
+
+.note__wrapper--combining {
+  transform: scale(.98);
 }
 
 .note__textarea {
@@ -262,6 +274,21 @@
   color: #333333;
   margin-top: 2px;
   cursor: pointer;
+}
+
+.notes__group {
+  background: #f2f2f2;
+  box-sizing: border-box;
+  padding: 12px;
+  border-radius: 8px;
+  margin-bottom: 8px;
+}
+
+.group__heading {
+  font-size: 18px;
+  color: #333333;
+  font-weight: bold;
+  margin-bottom: 8px;
 }
 
 @media only screen and (max-width: 1680px) {

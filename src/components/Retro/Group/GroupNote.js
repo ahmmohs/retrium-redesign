@@ -3,15 +3,16 @@ import { Draggable } from 'react-beautiful-dnd';
 
 import dragIcon from '../../../assets/drag.svg';
 
-function GroupNote ({id, index, note}) {
+function GroupNote ({id, index, note, key}) {
 	return (
-		<Draggable draggableId={id} index={index}>
-			{(provided, snapshot) => (
+		<Draggable draggableId={id} index={index} key={id}>
+			{(provided, snapshot) => {
+				return (
 					<div
+						ref={provided.innerRef}
 						{...provided.draggableProps}
 						{...provided.dragHandleProps}
-						ref={provided.innerRef}
-						className="note__wrapper"
+						className={snapshot.combineTargetFor ? "note__wrapper note__wrapper--combining" : "note__wrapper"}
 						style={{
 							marginBottom: "8px",
 							...provided.draggableProps.style
@@ -22,7 +23,7 @@ function GroupNote ({id, index, note}) {
 							{note.value}
 						</div>
 					</div>
-				)
+				)}
 			}
 		</Draggable>
 	)
