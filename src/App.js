@@ -5,6 +5,7 @@ import Nav from './components/Nav';
 import Landing from './components/Landing';
 import CreateRetro from './components/CreateRetro';
 import Retro from './components/Retro';
+
 import './styles/styles.css';
 
 const retros = [
@@ -73,7 +74,6 @@ const retros = [
     ]
   }
 ]
-
 
 function App () {
   const [selectedRetro, setSelectedRetro] = useState(0);
