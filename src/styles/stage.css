@@ -125,12 +125,13 @@
 .columns__wrapper {
   width: 100%;
   display: flex;
-  justify-content: space-between;
   box-sizing: border-box;
   padding: 32px;
   height: calc(100% - 124px);
 	max-height: calc(100% - 124px);
-	overflow: auto;
+  overflow: auto;
+  -webkit-user-select: none;
+  -moz-user-select: none;
 }
 
 .column {
@@ -142,6 +143,7 @@
   flex-direction: column;
   border-radius: 8px;
   transition: .2s ease;
+  margin-right: 32px;
 }
 
 .column--over {
@@ -289,6 +291,124 @@
   color: #333333;
   font-weight: bold;
   margin-bottom: 8px;
+}
+
+.group__input {
+  font-size: 18px;
+  color: #333333;
+  font-weight: bold;
+  margin-bottom: 8px;
+  background: #f2f2f2;
+  border: none;
+  outline: none;
+  box-sizing: border-box;
+  padding: 4px;
+  border-radius: 4px;
+  transition: .2s ease;
+}
+
+.group__input:hover {
+  background: #e6e6e6;
+}
+
+.votes__wrapper {
+  display: flex;
+  justify-content: space-between;
+}
+
+.vote__buttons {
+  display: flex;
+}
+
+.vote__button {
+  height: 32px;
+  width: 32px;
+  border-radius: 50%;
+  background: #f2f2f2;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: .2s ease;
+  margin-right: 8px;
+}
+
+.vote__button--disabled {
+  display: none;
+}
+
+.vote__button:hover {
+  transform: scale(.9);
+}
+
+.vote__button--img {
+  height: 16px;
+}
+
+.discuss__container {
+  display: flex;
+  width: 100%;
+  height: calc(100% - 80px);
+}
+
+.discuss__wrapper {
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+}
+
+.actions__wrapper {
+  width: 40%;
+  box-sizing: border-box;
+  background: #fafafa;
+  padding: 32px;
+  border-radius: 16px;
+  height: 90%;
+}
+
+.discussion__item {
+  width: 440px;
+  margin-bottom: 16px;
+}
+
+.action__item {
+  background: #f2f2f2;
+  width: 100%;
+  box-sizing: border-box;
+  padding: 16px;
+  border-radius: 8px;
+  margin-top: 8px;
+}
+
+.discussion__buttons {
+  display: flex;
+  width: 440px;
+  flex-direction: row-reverse;
+}
+
+.action__functions {
+  display: flex;
+  justify-content: space-between;
+  color: #333333;
+  font-size: 14px;
+}
+
+.action__items__wrapper {
+  width: 40%;
+  margin-top: 16px;
+}
+
+.mark {
+  transition: .2s ease;
+  cursor: pointer;
+}
+
+.mark:hover {
+  color: rgb(139, 155, 241);
 }
 
 @media only screen and (max-width: 1680px) {

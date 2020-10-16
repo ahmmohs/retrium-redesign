@@ -9,7 +9,13 @@ function ThinkColumn ({ title, desc, retroData, setRetroData }) {
 	
 	function createNote () {
 		const newRetroData = [...retroData];
-		newRetroData.push({column: title, value: '', color: colors[Math.floor(colors.length * Math.random())]});
+		newRetroData.push({
+			column: title,
+			value: '',
+			color: colors[Math.floor(colors.length * Math.random())],
+			id: `item-${newRetroData.length}`,
+			votes: 0,
+		});
 		setNewestNote(newRetroData.length - 1);
 		setRetroData(newRetroData);
 	}
@@ -42,17 +48,10 @@ function ThinkColumn ({ title, desc, retroData, setRetroData }) {
         </div>
       </div>
 			{
-				retroData.filter(item => item.column === title).map((note) => (
-					<ThinkNote note={note} i={retroData.indexOf(note)} updateNote={updateNote} deleteNote={deleteNote} newestNote={newestNote} />
+				retroData.filter(item => item.column === title).map((note, i) => (
+					<ThinkNote note={note} i={retroData.indexOf(note)} updateNote={updateNote} deleteNote={deleteNote} newestNote={newestNote} key={i} />
 				))
 			}
-      {
-        /*
-          <div className="new__note__wrapper">
-            <TextareaAutosize className="new__note" placeholder="Type your note here..." />
-          </div>
-        */
-      }
     </div>
   );
 }

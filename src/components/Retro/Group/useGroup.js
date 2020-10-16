@@ -51,8 +51,9 @@ function newGroupDiffCol(columns, source, combine) {
   const newGroup = {
     id: `group-${v4()}`,
     name: 'New Group',
-    col: combine.droppableId,
-    items: [removedFromDest, removedFromSource]
+    column: combine.droppableId,
+    items: [removedFromDest, removedFromSource],
+    votes: 0
   }
 
   destGroups.push(newGroup);
@@ -82,8 +83,9 @@ function newGroupSameCol(columns, source, combine) {
   const newGroup = {
     id: `group-${v4()}`,
     name: 'New Group',
-    col: source.droppableId,
-    items: [toCombineWith, toCombine]
+    column: source.droppableId,
+    items: [toCombineWith, toCombine],
+    votes: 0
   }
 
   sourceGroups.push(newGroup);

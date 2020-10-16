@@ -1,8 +1,10 @@
 import React from 'react';
 import Button from '../Button';
+import { useHistory } from 'react-router-dom';
 
 function RetroDetails ({ retro }) {
   const { type, description, columns } = retro;
+  const history = useHistory();
   
   return (
     <div className="retro__details">
@@ -12,7 +14,7 @@ function RetroDetails ({ retro }) {
       <div className="mini__heading" style={{marginTop: '32px', marginBottom: '8px'}}>How to Run</div>
       <div className="retrocd__wrapper">
         {columns.map((column, i) => (
-          <div className="retrocd">
+          <div className="retrocd" key={i}>
             <img src={null} alt="" className="retrocd--img"/>
             <div>
               <div className="template__name">{column.name}</div>
@@ -22,7 +24,7 @@ function RetroDetails ({ retro }) {
         ))}
       </div>
       <div className="flex--right" style={{marginTop: '16px'}}>
-        <Button text="Start this Retro!" color="orange" clickFn={() => {}} />
+        <Button text="Start this Retro!" color="orange" clickFn={() => {history.push('/retro')}} />
         <Button text="Learn more" color="outline" clickFn={() => {}} />
       </div>
     </div>

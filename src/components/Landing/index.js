@@ -1,15 +1,13 @@
 import React from 'react';
-
+import HasRetros from './HasRetros';
 import NoRetros from './NoRetros';
 
-function Landing ({hasRetros}) {
+function Landing ({ actionItems, setActionItems }) {
   return (
-    hasRetros ? (
-      <NoRetros />
+    actionItems.length > 0 ? (
+      <HasRetros actionItems={actionItems} setActionItems={setActionItems} />
     ) : (
-      <div>
-        Lol
-      </div>
+      <NoRetros />
     )
   );
 }

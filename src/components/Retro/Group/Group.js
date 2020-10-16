@@ -4,12 +4,16 @@ import GroupNote from './GroupNote';
 
 import { Draggable, Droppable } from 'react-beautiful-dnd';
 
-function Group ({ id, items, index }) {
+function Group ({ colId, id, items, index, setGroupName, name }) {
   console.log(items);
 
   return (
     <div className="notes__group">
-      <div className="group__heading">Group 1</div>
+      <input
+        className="group__input"
+        value={name}
+        onChange={e => setGroupName(colId, id, e.target.value)}
+      />
       <Droppable droppableId={id}>
         {(provided, snapshot) => {
           return (

@@ -4,7 +4,7 @@ import GroupNote from './GroupNote';
 import { useState } from 'react';
 import Group from './Group';
 
-function GroupColumn ({ id, column }) {
+function GroupColumn ({ id, column, setGroupName }) {
 
 	return (
 		<div className="column">
@@ -16,7 +16,7 @@ function GroupColumn ({ id, column }) {
 			</div>
 			{
 				column.groups.map((group, index) => (
-					<Group id={group.id} index={index} items={group.items} key={group.id} />
+					<Group colId={id} id={group.id} index={index} items={group.items} key={group.id} setGroupName={setGroupName} name={group.name} />
 				))
 			}
 			<Droppable droppableId={id} isCombineEnabled>

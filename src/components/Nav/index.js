@@ -22,8 +22,8 @@ function Nav ({orgName, roomName}) {
             </div>
           </div>
           <NavRoom name="Product Design" active={true} />
-          <NavRoom name="Product Design" active={false} />
-          <NavRoom name="Product Design" active={false} />
+          <NavRoom name="Frontend Devs" active={false} />
+          <NavRoom name="Backend Devs" active={false} />
         </div>
       </div>
       <div className="nav__section">

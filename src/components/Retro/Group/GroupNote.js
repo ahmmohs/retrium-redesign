@@ -3,7 +3,7 @@ import { Draggable } from 'react-beautiful-dnd';
 
 import dragIcon from '../../../assets/drag.svg';
 
-function GroupNote ({id, index, note, key}) {
+function GroupNote ({id, index, note }) {
 	return (
 		<Draggable draggableId={id} index={index} key={id}>
 			{(provided, snapshot) => {

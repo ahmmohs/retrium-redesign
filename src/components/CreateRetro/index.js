@@ -28,7 +28,7 @@ function CreateRetro ({ retros, setSelectedRetro, selectedRetro }) {
         <div className="retro__select__wrapper">
           {
             retros.map((retro, i) => (
-              <RetroTemplateSelect name={retro.type} img={null} description={retro.shortDesc} active={i === selectedRetro} clickFn={() => setSelectedRetro(i)} />
+              <RetroTemplateSelect name={retro.type} img={null} description={retro.shortDesc} active={i === selectedRetro} clickFn={() => setSelectedRetro(i)} key={i} />
             ))
           }
         </div>

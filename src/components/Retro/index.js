@@ -34,7 +34,7 @@ const participants = [
   },
 ]
 
-function Retro ({ retro }) {
+function Retro ({ retro, actionItems, setActionItems }) {
   const [retroStage, setRetroStage] = useState(0);
 
   return (
@@ -44,14 +44,14 @@ function Retro ({ retro }) {
           <div className="header__title">Participants</div>
           <div className="participants__list">
             {
-              participants.map((participant) => (
-                <div className="participant" style={{backgroundImage: `url(${participant.icon})`}}></div>
+              participants.map((participant, i) => (
+                <div className="participant" style={{backgroundImage: `url(${participant.icon})`}} key={i}></div>
               ))
             }
           </div>
         </div>
       </div>
-      <Stage retro={retro} stage={retroStage} setStage={setRetroStage} />
+      <Stage retro={retro} stage={retroStage} setStage={setRetroStage} actionItems={actionItems} setActionItems={setActionItems} />
     </>
   );
 }
